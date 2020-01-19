@@ -5,13 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.joda.time.LocalDate;
 import org.joda.time.Period;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import Iceland.Tech.Test.iceland.models.StoreItem;
+
 import org.junit.runner.RunWith;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class IcelandApplicationTests {
+
+	@Autowired
+	StoreItem item;
 
 	@Test
 	void contextLoads() {
@@ -33,10 +40,10 @@ class IcelandApplicationTests {
 		assertEquals(diff, 6);
 	}
 
-	// @Test
-	// void CheeseRate(int sellBy, int quality){
-
-	// }
+	@Test
+	void CheeseRate(){
+		item.updateStoreQuality("Aged Brie", 1, 1);
+	}
 	
 	// @Test
 	// void FrozenFoodRate(int sellBy, int quality){

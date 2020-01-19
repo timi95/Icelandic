@@ -127,5 +127,62 @@ public class StoreItem {
             "}";
     }
 
+    public int[] updateStoreQuality(String itemName, int SellInValue, int QualityValue ) {
+        // return new{0,1};
+        String[] splitSearchString = itemName.split("(\\s|\\s+)");//split by whitespace characters
+        String[] itemTypes = {"Aged Brie","Christmas Crackers", "Fresh Item", "Frozen Item", "Soap"};
+        boolean bool;
+        // searchString.toUpperCase().matches(brie)
+        for (String searchString : splitSearchString) {
+            for (String type : itemTypes) { //cross check the types with each entered string
+                if(type.toLowerCase().contains(searchString.toLowerCase())){
+                    System.out.println("This is the searchString: "+searchString+"\n");
+                    switch (type) {
+                        case "Aged Brie":
+                            // Brie calculation
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("Aged Brie case!");
+                            return new int[]{0,1};
+                        case "Christmas Crackers":
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("cracker  case!");
+
+                            return new int[]{0,1};
+                        
+                        case "Fresh Item":
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("Fresh item case!");
+
+                            return new int[]{0,1};
+                        case "Frozen Item":
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("Frozen Item case!");
+
+                            return new int[]{0,1};
+                        
+                        case "Soap":
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("Soap case!");
+
+                            return new int[]{0,1};
+                    
+                        default:
+                            System.out.println("This is the type: "+type+"\n");
+
+                            System.out.println("NO SUCH ITEM!");
+
+                            break;
+                    }
+                }
+            }
+            
+        }
+        return new int[]{0,0};
+    }
     
 }

@@ -36,6 +36,12 @@ public class StoreService {
         return new ApiResponse(true, "Successfully Created Article", storeItemRepository.save(item));
     }
 
+    public String checkAndUpdateStoreItem( StoreItem item ) {
+        // Aged Brie
+        // 
+        return "";
+    }
+
         //private methods used by this class
         private PageRequest pageRequestForIdDesc(int page, int size){
             return PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));

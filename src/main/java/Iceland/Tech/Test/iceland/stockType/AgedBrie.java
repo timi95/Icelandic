@@ -5,5 +5,5 @@ package Iceland.Tech.Test.iceland.stockType;
  */
 public interface AgedBrie {
 
-    
+    int[] updateStoreQuality();
 }
