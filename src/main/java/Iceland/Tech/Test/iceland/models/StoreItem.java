@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 // import org.springframework.data.annotation.Id;
@@ -32,7 +33,8 @@ public class StoreItem {
     private int QualityValue;
 
     @Column
-    @DateTimeFormat(pattern="yyyy.MM.dd") 
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    // @DateTimeFormat(pattern="yyyy.MM.dd")
     private LocalDate date;
 
 

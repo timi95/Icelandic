@@ -21,7 +21,7 @@ public class StoreItemDTO {
 
     public int qualityValue;
 
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     @DateTimeFormat(pattern="yyyy.MM.dd")
     private LocalDate date;
 
