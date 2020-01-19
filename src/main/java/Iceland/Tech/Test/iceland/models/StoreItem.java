@@ -1,5 +1,6 @@
 package Iceland.Tech.Test.iceland.models;
 
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
 // import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
@@ -23,20 +26,25 @@ public class StoreItem {
     private Long id;
 
     @Column
-    public int SellInValue;
+    private int SellInValue;
 
     @Column
-    public int QualityValue;
+    private int QualityValue;
+
+    @Column
+    @DateTimeFormat(pattern="yyyy.MM.dd") 
+    private LocalDate date;
+
 
     public StoreItem() {
     }
 
 
-
-    public StoreItem(Long id, int SellInValue, int QualityValue) {
+    public StoreItem(Long id, int SellInValue, int QualityValue, LocalDate date) {
         this.id = id;
         this.SellInValue = SellInValue;
         this.QualityValue = QualityValue;
+        this.date = date;
     }
 
     public Long getId() {
@@ -63,6 +71,14 @@ public class StoreItem {
         this.QualityValue = QualityValue;
     }
 
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     public StoreItem id(Long id) {
         this.id = id;
         return this;
@@ -78,6 +94,11 @@ public class StoreItem {
         return this;
     }
 
+    public StoreItem date(LocalDate date) {
+        this.date = date;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -86,12 +107,12 @@ public class StoreItem {
             return false;
         }
         StoreItem storeItem = (StoreItem) o;
-        return Objects.equals(id, storeItem.id) && SellInValue == storeItem.SellInValue && QualityValue == storeItem.QualityValue;
+        return Objects.equals(id, storeItem.id) && SellInValue == storeItem.SellInValue && QualityValue == storeItem.QualityValue && Objects.equals(date, storeItem.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, SellInValue, QualityValue);
+        return Objects.hash(id, SellInValue, QualityValue, date);
     }
 
     @Override
@@ -100,6 +121,7 @@ public class StoreItem {
             " id='" + getId() + "'" +
             ", SellInValue='" + getSellInValue() + "'" +
             ", QualityValue='" + getQualityValue() + "'" +
+            ", date='" + getDate() + "'" +
             "}";
     }
 

@@ -55,3 +55,7 @@ public class StoreItemController {
     }
     
 }
+
+// @RequestParam("date") @DateTimeFormat(pattern="yyyy.MM.dd") Date date,
+// @RequestParam("localdate") @DateTimeFormat(pattern="yyyy.MM.dd") LocalDate localdate, 
+//  @RequestParam("localdatetime") @DateTimeFormat(pattern="yyyy.MM.dd HH:mm:ss") LocalDateTime localdatetime

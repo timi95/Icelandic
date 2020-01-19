@@ -32,6 +32,7 @@ public class StoreService {
         StoreItem item = new StoreItem();
         item.setQualityValue(itemDTO.getQualityValue());
         item.setSellInValue(itemDTO.getSellInValue());
+        item.setDate(itemDTO.getDate());
         return new ApiResponse(true, "Successfully Created Article", storeItemRepository.save(item));
     }
 

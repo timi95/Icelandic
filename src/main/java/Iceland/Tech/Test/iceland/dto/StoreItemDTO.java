@@ -2,48 +2,71 @@ package Iceland.Tech.Test.iceland.dto;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * StoreItemDTO
  */
 public class StoreItemDTO {
 
   
-    public int SellInValue;
+    public int sellInValue;
 
-    public int QualityValue;
+    public int qualityValue;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
 
     public StoreItemDTO() {
     }
 
-    public StoreItemDTO(int SellInValue, int QualityValue) {
-        this.SellInValue = SellInValue;
-        this.QualityValue = QualityValue;
+    public StoreItemDTO(int sellInValue, int qualityValue, LocalDate date) {
+        this.sellInValue = sellInValue;
+        this.qualityValue = qualityValue;
+        this.date = date;
     }
 
     public int getSellInValue() {
-        return this.SellInValue;
+        return this.sellInValue;
     }
 
-    public void setSellInValue(int SellInValue) {
-        this.SellInValue = SellInValue;
+    public void setSellInValue(int sellInValue) {
+        this.sellInValue = sellInValue;
     }
 
     public int getQualityValue() {
-        return this.QualityValue;
+        return this.qualityValue;
     }
 
-    public void setQualityValue(int QualityValue) {
-        this.QualityValue = QualityValue;
+    public void setQualityValue(int qualityValue) {
+        this.qualityValue = qualityValue;
     }
 
-    public StoreItemDTO SellInValue(int SellInValue) {
-        this.SellInValue = SellInValue;
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public StoreItemDTO sellInValue(int sellInValue) {
+        this.sellInValue = sellInValue;
         return this;
     }
 
-    public StoreItemDTO QualityValue(int QualityValue) {
-        this.QualityValue = QualityValue;
+    public StoreItemDTO qualityValue(int qualityValue) {
+        this.qualityValue = qualityValue;
+        return this;
+    }
+
+    public StoreItemDTO date(LocalDate date) {
+        this.date = date;
         return this;
     }
 
@@ -55,20 +78,22 @@ public class StoreItemDTO {
             return false;
         }
         StoreItemDTO storeItemDTO = (StoreItemDTO) o;
-        return SellInValue == storeItemDTO.SellInValue && QualityValue == storeItemDTO.QualityValue;
+        return sellInValue == storeItemDTO.sellInValue && qualityValue == storeItemDTO.qualityValue && Objects.equals(date, storeItemDTO.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(SellInValue, QualityValue);
+        return Objects.hash(sellInValue, qualityValue, date);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " SellInValue='" + getSellInValue() + "'" +
-            ", QualityValue='" + getQualityValue() + "'" +
+            " sellInValue='" + getSellInValue() + "'" +
+            ", qualityValue='" + getQualityValue() + "'" +
+            ", date='" + getDate() + "'" +
             "}";
     }
+
 
 }
