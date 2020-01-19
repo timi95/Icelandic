@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import Iceland.Tech.Test.iceland.dto.StoreItemDTO;
+import Iceland.Tech.Test.iceland.models.StoreItem;
 import Iceland.Tech.Test.iceland.responses.DefaultResponses;
 import Iceland.Tech.Test.iceland.services.StoreService;
 
@@ -25,6 +26,8 @@ public class StoreItemController {
 
     private static final Logger L = LogManager.getLogger(StoreItemController.class);
 
+    @Autowired
+    private StoreItem storeItem;
     @Autowired
     private StoreService storeService;
     
@@ -54,6 +57,11 @@ public class StoreItemController {
         }
     }
     
+    // @GetMapping(path="tests")
+    // public void testingUpdateMethods() {
+    //     System.out.println("CALLING TESTING METHOD");
+    //     storeItem.updateStoreQuality("Aged Brie", 0, 0);
+    // }
 }
 
 // @RequestParam("date") @DateTimeFormat(pattern="yyyy.MM.dd") Date date,
