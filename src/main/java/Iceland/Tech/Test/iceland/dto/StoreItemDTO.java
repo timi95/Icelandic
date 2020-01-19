@@ -2,8 +2,12 @@ package Iceland.Tech.Test.iceland.dto;
 
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,8 +21,8 @@ public class StoreItemDTO {
 
     public int qualityValue;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    @DateTimeFormat(pattern="yyyy.MM.dd")
     private LocalDate date;
 
 
