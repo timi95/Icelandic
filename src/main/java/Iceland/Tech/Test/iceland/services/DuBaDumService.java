@@ -13,4 +13,8 @@ public class DuBaDumService {
     public ApiResponse getFile( String filename ) {
         return null;
     }
+
+	public Object loadAll() {
+		return null;
+	}
 }
