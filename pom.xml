@@ -6,13 +6,13 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.0.BUILD-SNAPSHOT</version>
-		<packaging>war</packaging>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Iceland.Tech.Test</groupId>
 	<artifactId>iceland</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>iceland</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
