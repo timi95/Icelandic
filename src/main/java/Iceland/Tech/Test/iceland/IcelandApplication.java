@@ -10,7 +10,4 @@ public class IcelandApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IcelandApplication.class, args);
 	}
-
-
-
 }
