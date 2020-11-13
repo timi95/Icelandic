@@ -11,4 +11,5 @@ public class IcelandApplication {
 		SpringApplication.run(IcelandApplication.class, args);
 	}
 
+	
 }
